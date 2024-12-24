@@ -31,8 +31,7 @@ public class Topico {
     @ManyToOne
     @JoinColumn(name = "curso_id")
     private Curso curso; // nombre del Curso
-    @OneToMany
-    @JoinColumn(name = "respuesta_id")
+    @OneToMany(mappedBy = "topico", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Respuesta> respuestas;
 
     public Topico() {

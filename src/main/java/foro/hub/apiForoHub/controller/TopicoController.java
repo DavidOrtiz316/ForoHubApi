@@ -71,4 +71,11 @@ public class TopicoController {
         Topico topico = topicoRepository.getReferenceById(datosActualizarTopico.id());
         topico.actualizarDatos(datosActualizarTopico);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void eliminarTopico(@PathVariable Long id){
+        Topico topico = topicoRepository.getReferenceById(id);
+        topicoRepository.delete(topico);
+    }
 }
