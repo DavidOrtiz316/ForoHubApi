@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "Curso")
 @Table(name = "curso")
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -24,4 +23,19 @@ public class Curso {
     @OneToMany(mappedBy = "curso")
     private List<Topico> topicos;
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public List<Topico> getTopicos() {
+        return topicos;
+    }
 }

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "Perfil")
 @Table(name = "perfil")
 @Getter
 @NoArgsConstructor
@@ -22,4 +22,16 @@ public class Perfil {
     private String nombre;
     @OneToMany(mappedBy = "perfil")
     private List<Usuario> usuarios;
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
 }

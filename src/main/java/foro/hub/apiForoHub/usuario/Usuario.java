@@ -11,9 +11,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Entity
+@Entity(name = "Usuario")
 @Table(name = "usuario")
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -21,6 +20,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nombre;
     private String correoElectronico;
     private String password;
     @ManyToOne
@@ -30,4 +30,32 @@ public class Usuario {
     private List<Topico> topicos;
     @OneToMany(mappedBy = "autor")
     private List<Respuesta> respuestas;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public List<Topico> getTopicos() {
+        return topicos;
+    }
+
+    public List<Respuesta> getRespuestas() {
+        return respuestas;
+    }
 }

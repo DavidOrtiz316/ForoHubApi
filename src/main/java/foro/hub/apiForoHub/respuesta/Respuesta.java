@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
-@Entity
+@Entity(name = "Respuesta")
 @Table(name = "respuesta")
 @Getter
 @NoArgsConstructor
@@ -21,6 +21,7 @@ public class Respuesta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String mensaje;
+    @Column(name = "fecha_creacion")
     private LocalDateTime fechaCreacion = LocalDateTime.now();
     @ManyToOne
     @JoinColumn(name = "topico_id")
