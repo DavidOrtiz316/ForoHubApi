@@ -1,4 +1,4 @@
-package foro.hub.apiForoHub.usuario;
+package foro.hub.apiForoHub.domain.usuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

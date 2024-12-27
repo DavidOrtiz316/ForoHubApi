@@ -1,4 +1,4 @@
-package foro.hub.apiForoHub.curso;
+package foro.hub.apiForoHub.domain.curso;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

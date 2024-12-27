@@ -1,6 +1,6 @@
-package foro.hub.apiForoHub.perfil;
+package foro.hub.apiForoHub.domain.perfil;
 
-import foro.hub.apiForoHub.usuario.Usuario;
+import foro.hub.apiForoHub.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

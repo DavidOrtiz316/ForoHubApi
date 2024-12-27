@@ -1,12 +1,11 @@
-package foro.hub.apiForoHub.usuario;
+package foro.hub.apiForoHub.domain.usuario;
 
-import foro.hub.apiForoHub.perfil.Perfil;
-import foro.hub.apiForoHub.respuesta.Respuesta;
-import foro.hub.apiForoHub.topico.Topico;
+import foro.hub.apiForoHub.domain.perfil.Perfil;
+import foro.hub.apiForoHub.domain.respuesta.Respuesta;
+import foro.hub.apiForoHub.domain.topico.Topico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;

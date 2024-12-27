@@ -1,7 +1,7 @@
-package foro.hub.apiForoHub.respuesta;
+package foro.hub.apiForoHub.domain.respuesta;
 
-import foro.hub.apiForoHub.topico.Topico;
-import foro.hub.apiForoHub.usuario.Usuario;
+import foro.hub.apiForoHub.domain.topico.Topico;
+import foro.hub.apiForoHub.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

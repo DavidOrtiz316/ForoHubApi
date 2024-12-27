@@ -1,8 +1,8 @@
-package foro.hub.apiForoHub.topico;
+package foro.hub.apiForoHub.domain.topico;
 
-import foro.hub.apiForoHub.curso.Curso;
-import foro.hub.apiForoHub.respuesta.Respuesta;
-import foro.hub.apiForoHub.usuario.Usuario;
+import foro.hub.apiForoHub.domain.curso.Curso;
+import foro.hub.apiForoHub.domain.respuesta.Respuesta;
+import foro.hub.apiForoHub.domain.usuario.Usuario;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

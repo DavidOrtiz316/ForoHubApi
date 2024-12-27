@@ -1,6 +1,4 @@
-package foro.hub.apiForoHub.topico;
-
-import foro.hub.apiForoHub.perfil.Perfil;
+package foro.hub.apiForoHub.domain.topico;
 
 import java.time.LocalDateTime;
 
