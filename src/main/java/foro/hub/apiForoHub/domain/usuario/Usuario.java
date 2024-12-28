@@ -6,55 +6,75 @@ import foro.hub.apiForoHub.domain.topico.Topico;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.List;
 
 @Entity(name = "Usuario")
 @Table(name = "usuario")
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Usuario {
+public class Usuario implements UserDetails {
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Getter
     private String nombre;
+    @Getter
     private String correoElectronico;
     private String password;
+    @Getter
     @ManyToOne
     @JoinColumn(name = "perfil_id")
     private Perfil perfil;
+    @Getter
     @OneToMany(mappedBy = "autor")
     private List<Topico> topicos;
+    @Getter
     @OneToMany(mappedBy = "autor")
     private List<Respuesta> respuestas;
 
-    public String getNombre() {
-        return nombre;
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getCorreoElectronico() {
-        return correoElectronico;
-    }
-
+    @Override
     public String getPassword() {
         return password;
     }
 
-    public Perfil getPerfil() {
-        return perfil;
+    @Override
+    public String getUsername() {
+        return nombre;
     }
 
-    public List<Topico> getTopicos() {
-        return topicos;
+    @Override
+    public boolean isAccountNonExpired() {
+        return UserDetails.super.isAccountNonExpired();
     }
 
-    public List<Respuesta> getRespuestas() {
-        return respuestas;
+    @Override
+    public boolean isAccountNonLocked() {
+        return UserDetails.super.isAccountNonLocked();
     }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return UserDetails.super.isCredentialsNonExpired();
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return UserDetails.super.isEnabled();
+    }
+
 }
