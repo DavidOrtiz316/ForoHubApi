@@ -17,28 +17,21 @@ import java.util.List;
 
 @Entity(name = "Usuario")
 @Table(name = "usuario")
-@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Usuario implements UserDetails {
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Getter
     private String nombre;
-    @Getter
     private String correoElectronico;
     private String password;
-    @Getter
     @ManyToOne
     @JoinColumn(name = "perfil_id")
     private Perfil perfil;
-    @Getter
     @OneToMany(mappedBy = "autor")
     private List<Topico> topicos;
-    @Getter
     @OneToMany(mappedBy = "autor")
     private List<Respuesta> respuestas;
 
@@ -77,4 +70,27 @@ public class Usuario implements UserDetails {
         return UserDetails.super.isEnabled();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public Perfil getPerfil() {
+        return perfil;
+    }
+
+    public List<Topico> getTopicos() {
+        return topicos;
+    }
+
+    public List<Respuesta> getRespuestas() {
+        return respuestas;
+    }
 }

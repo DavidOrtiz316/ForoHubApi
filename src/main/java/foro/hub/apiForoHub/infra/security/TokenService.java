@@ -29,26 +29,24 @@ public class TokenService {
                     .withClaim("id",usuario.getId())
                     .withExpiresAt(generarFechaExpiracion())
                     .sign(algorithm);
-
         } catch (JWTCreationException exception){
-            throw new RuntimeException();
+            throw new RuntimeException("Error al generar el token", exception);
         }
     }
 
     public String getSubject(String token) {
         if(token == null){
-            throw new RuntimeException();
+            throw new RuntimeException("Token invalido o no verificado");
         }
-        DecodedJWT decodedJWT;
+        //DecodedJWT decodedJWT;
         DecodedJWT verifier = null;
         try {
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);//Validando firma
             verifier = JWT.require(algorithm)
-                    .withIssuer()
+                    .withIssuer("foro hub")
                     .build()
                     .verify(token);
             verifier.getSubject();
-
         } catch (JWTVerificationException exception) {
             System.out.println(exception.toString());
         }
@@ -60,7 +58,8 @@ public class TokenService {
     }
 
     private Instant generarFechaExpiracion(){
-        return LocalDateTime.now()
+        return LocalDateTime
+                .now()
                 .plusHours(2)
                 .toInstant(ZoneOffset.of("-05:00"));
     }
