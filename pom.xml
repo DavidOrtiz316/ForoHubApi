@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>foro.hub</groupId>
-	<artifactId>apiForoHub</artifactId>
+	<artifactId>ForoHubApi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>apiForoHub</name>
 	<description>Proyecto Spring Boot para una API REST de un Foro</description>
